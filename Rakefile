@@ -19,7 +19,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{It simply loads small part of torrent that contains metadata and processes it with ffmpeg}
   gem.email = "fazzzenda@mail.ru"
   gem.authors = ["Pavel Tatarsky"]
-  gem.extensions = %w[extconf.rb]
+  gem.extensions = %w[ext/torrent_client/extconf.rb]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
