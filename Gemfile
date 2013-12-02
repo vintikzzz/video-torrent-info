@@ -12,6 +12,6 @@ group :development do
   gem "rspec"
   gem "rake-compiler"
   gem "rice"
-  gem "ffmpeg-video-info", path: '../ffmpeg-video-info'
+  gem "ffmpeg-video-info"
   gem 'bencode', :git => 'git://github.com/vintikzzz/ruby-bencode.git'
 end

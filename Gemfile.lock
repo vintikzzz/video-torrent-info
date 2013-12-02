@@ -4,11 +4,6 @@ GIT
   specs:
     bencode (0.6.1)
 
-PATH
-  remote: ../ffmpeg-video-info
-  specs:
-    ffmpeg-video-info (0.1.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -17,6 +12,7 @@ GEM
     diff-lcs (1.2.5)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
+    ffmpeg-video-info (0.1.1)
     git (1.2.6)
     github_api (0.10.1)
       addressable
@@ -73,7 +69,7 @@ PLATFORMS
 DEPENDENCIES
   bencode!
   bundler (~> 1.0)
-  ffmpeg-video-info!
+  ffmpeg-video-info
   jeweler (~> 1.8.7)
   rake-compiler
   rdoc (~> 3.12)
