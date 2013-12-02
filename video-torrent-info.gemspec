@@ -30,7 +30,8 @@ Gem::Specification.new do |s|
     "spec/fixtures/test.torrent",
     "spec/lib/torrent_client_spec.rb",
     "spec/lib/video_torrent_info_spec.rb",
-    "spec/spec_helper.rb"
+    "spec/spec_helper.rb",
+    "video-torrent-info.gemspec"
   ]
   s.homepage = "http://github.com/vintikzzz/video-torrent-info"
   s.licenses = ["MIT"]
