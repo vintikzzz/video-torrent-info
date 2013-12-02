@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'rubygems'
 require 'bundler'
 begin
@@ -17,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "video-torrent-info"
   gem.homepage = "http://github.com/vintikzzz/video-torrent-info"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Gets video info for the torrent file}
+  gem.description = %Q{It simply loads small part of torrent that contains metadata and processes it with ffmpeg}
   gem.email = "fazzzenda@mail.ru"
   gem.authors = ["Pavel Tatarsky"]
   gem.extensions = %w[extconf.rb]
