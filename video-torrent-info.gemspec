@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.date = "2013-12-02"
   s.description = "It simply loads small part of torrent that contains metadata and processes it with ffmpeg"
   s.email = "fazzzenda@mail.ru"
-  s.extensions = ["extconf.rb"]
+  s.extensions = ["ext/torrent_client/extconf.rb"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
