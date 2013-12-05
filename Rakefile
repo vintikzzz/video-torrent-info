@@ -20,6 +20,7 @@ Jeweler::Tasks.new do |gem|
   gem.email = "fazzzenda@mail.ru"
   gem.authors = ["Pavel Tatarsky"]
   gem.extensions = %w[ext/torrent_client/extconf.rb]
+  gem.add_dependency 'ffmpeg-video-info'
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
