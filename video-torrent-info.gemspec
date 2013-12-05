@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "video-torrent-info"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pavel Tatarsky"]
-  s.date = "2013-12-02"
+  s.date = "2013-12-05"
   s.description = "It simply loads small part of torrent that contains metadata and processes it with ffmpeg"
   s.email = "fazzzenda@mail.ru"
   s.extensions = ["ext/torrent_client/extconf.rb"]
@@ -51,6 +51,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rice>, [">= 0"])
       s.add_development_dependency(%q<ffmpeg-video-info>, [">= 0"])
       s.add_development_dependency(%q<bencode>, [">= 0"])
+      s.add_runtime_dependency(%q<ffmpeg-video-info>, [">= 0"])
     else
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
@@ -60,6 +61,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rice>, [">= 0"])
       s.add_dependency(%q<ffmpeg-video-info>, [">= 0"])
       s.add_dependency(%q<bencode>, [">= 0"])
+      s.add_dependency(%q<ffmpeg-video-info>, [">= 0"])
     end
   else
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
@@ -70,6 +72,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rice>, [">= 0"])
     s.add_dependency(%q<ffmpeg-video-info>, [">= 0"])
     s.add_dependency(%q<bencode>, [">= 0"])
+    s.add_dependency(%q<ffmpeg-video-info>, [">= 0"])
   end
 end
 
