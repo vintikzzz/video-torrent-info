@@ -21,6 +21,7 @@ Jeweler::Tasks.new do |gem|
   gem.authors = ["Pavel Tatarsky"]
   gem.extensions = %w[ext/torrent_client/extconf.rb]
   gem.add_dependency 'ffmpeg-video-info'
+  gem.add_dependency 'rice'
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
