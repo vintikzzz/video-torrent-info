@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "video-torrent-info"
-  s.version = "0.1.2"
+  s.version = "0.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Pavel Tatarsky"]
-  s.date = "2013-12-09"
+  s.date = "2013-12-10"
   s.description = "It simply loads small part of torrent that contains metadata and processes it with ffmpeg"
   s.email = "fazzzenda@mail.ru"
   s.extensions = ["ext/torrent_client/extconf.rb"]
