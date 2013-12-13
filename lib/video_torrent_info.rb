@@ -30,7 +30,7 @@ class VideoTorrentInfo
     if info['files'].nil?
       files = [info['name']]
     else
-      files = info['files'].map { |e| (info['name'] + e['path']).join('/') }
+      files = info['files'].map { |e| ([info['name']] + e['path']).join('/') }
     end
     files.each do |f|
       if @params[:supported_extensions].include?(File.extname(f))
