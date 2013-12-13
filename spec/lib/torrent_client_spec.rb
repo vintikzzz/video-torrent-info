@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'torrent_client'
 describe VideoTorrentInfo::TorrentClient do
-  let(:target) { 'RIPD.3D.2013.BDRip1080p.halfOU(Killbrain)_[scarabey.org].mkv' }
+  let(:target) { '/tmp/RIPD.3D.2013.BDRip1080p.halfOU(Killbrain)_[scarabey.org].mkv' }
   subject { VideoTorrentInfo::TorrentClient.new }
   context 'when #load' do
     context 'with wrong file' do
@@ -11,8 +11,10 @@ describe VideoTorrentInfo::TorrentClient do
     end
     context 'with good file' do
       before do
+        subject.load('spec/fixtures/test.torrent', 0, 1000000, '/tmp', 8661, 8662)
+      end
+      after do 
         File.unlink(target)
-        subject.load('spec/fixtures/test.torrent', 0, 1000000, './', 8661, 8662)
       end
       specify do
         expect(File.exist?(target)).to be_true
