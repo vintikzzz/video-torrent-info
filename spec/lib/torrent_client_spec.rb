@@ -6,12 +6,12 @@ describe VideoTorrentInfo::TorrentClient do
   context 'when #load' do
     context 'with wrong file' do
       specify do
-        expect { subject.load('abra', 0, 1000000, 'cadabra', 8661, 8662) }.to raise_error('failed to load torrent info: No such file or directory')
+        expect { subject.load('abra', 0, 1000000, 'cadabra', 8661, 8662, 60) }.to raise_error('failed to load torrent info: No such file or directory')
       end
     end
     context 'with good file' do
       before do
-        subject.load('spec/fixtures/test.torrent', 0, 1000000, '/tmp', 8661, 8662)
+        subject.load('spec/fixtures/test.torrent', 0, 1000000, '/tmp', 8661, 8662, 60)
       end
       after do 
         File.unlink(target)

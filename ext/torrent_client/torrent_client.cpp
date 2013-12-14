@@ -18,7 +18,7 @@ struct MyException : public std::exception
    const char* what() const throw() { return s.c_str(); }
 };
 
-void load(String torrent_path, int idx, int size, String save_path, int port1, int port2)
+void load(String torrent_path, int idx, int size, String save_path, int port1, int port2, int timeout)
 {
   using namespace libtorrent;
 
@@ -57,6 +57,7 @@ void load(String torrent_path, int idx, int size, String save_path, int port1, i
   }
 
   size_type temp = 0;
+  int t = 0;
 
   while (true)
   {
@@ -69,7 +70,12 @@ void load(String torrent_path, int idx, int size, String save_path, int port1, i
     {
       return;
     }
-    sleep(1000);
+    if (t >= timeout * 1000)
+    {
+      return;
+    }
+    t++;
+    usleep(1000);
   }
 }
 void handle_my_exception(std::exception const & ex)

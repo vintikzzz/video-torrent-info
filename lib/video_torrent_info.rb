@@ -7,7 +7,8 @@ class VideoTorrentInfo
     port2: 8662,
     temp_path: '/tmp',
     supported_extensions: %w{ .avi .mkv .mpg .mpeg .3gp .wmv .mov .flv .mts },
-    download_limit: 1000000
+    download_limit: 1000000,
+    timeout: 60
   }
   def initialize(params = {})
     @params = DEFAULTS.merge(params)
@@ -17,7 +18,7 @@ class VideoTorrentInfo
     string = File.open(torrent_path){ |file| file.read }
     torrent = string.bdecode
     files = get_video_files(torrent)
-    @torrent_client.load(torrent_path, files.keys.first, @params[:download_limit], @params[:temp_path], @params[:port1], @params[:port2])
+    @torrent_client.load(torrent_path, files.keys.first, @params[:download_limit], @params[:temp_path], @params[:port1], @params[:port2], @params[:timeout])
     dest = @params[:temp_path] + '/' + files.values.first
     res = FFmpegVideoInfo.get(dest) 
     File.unlink(dest)
