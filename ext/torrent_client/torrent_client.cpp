@@ -45,7 +45,9 @@ void load(String torrent_path, int idx, int size, String save_path, int port1, i
     err << "failed to add torrent: " << ec.message().c_str();
     throw MyException(err.str());
   }
-  h.set_sequential_download(true);
+  if (size > 0) {
+    h.set_sequential_download(true);
+  }
   int index = 0;
   for (torrent_info::file_iterator i = p.ti->begin_files(); i != p.ti->end_files(); ++i, ++index)
   {
@@ -62,11 +64,15 @@ void load(String torrent_path, int idx, int size, String save_path, int port1, i
   while (true)
   {
     torrent_status st = h.status();
+    if (st.is_finished == true) {
+      return;
+    }
     if (st.total_done > temp)
     {
+      // std::cout << st.total_done;
       temp = st.total_done;
     }
-    if (temp >= size)
+    if (size > 0 && temp >= size)
     {
       return;
     }

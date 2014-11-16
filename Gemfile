@@ -6,12 +6,12 @@ source "http://rubygems.org"
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do
-  gem "rdoc", "~> 3.12"
-  gem "bundler", "~> 1.0"
-  gem "jeweler", "~> 1.8.7"
+  gem "rdoc"
+  gem "bundler"
+  gem "jeweler"
   gem "rspec"
   gem "rake-compiler"
   gem "rice"
-  gem "ffmpeg-video-info"
+  gem "ffmpeg-video-info", "~> 0.1.5"
   gem 'bencode', :git => 'git://github.com/vintikzzz/ruby-bencode.git'
 end

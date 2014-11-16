@@ -5,7 +5,7 @@ describe VideoTorrentInfo do
   context 'when #load' do
     context 'with good file' do
       specify do
-        expect(subject.load('spec/fixtures/test.torrent')['format_name']).to eql('matroska,webm')
+        expect(subject.load('spec/fixtures/test.torrent')['format_name']).to eql('avi')
       end
     end
   end
