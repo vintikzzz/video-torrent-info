@@ -77,7 +77,9 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rspec>, [">= 0"])
     s.add_dependency(%q<rake-compiler>, [">= 0"])
     s.add_dependency(%q<rice>, [">= 0"])
+    s.add_dependency(%q<ffmpeg-video-info>, [">= 0"])
     s.add_dependency(%q<bencode>, [">= 0"])
+    s.add_dependency(%q<ffmpeg-video-info>, [">= 0"])
     s.add_dependency(%q<rice>, [">= 0"])
   end
 end
