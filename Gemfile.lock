@@ -76,7 +76,7 @@ PLATFORMS
 DEPENDENCIES
   bencode!
   bundler
-  ffmpeg-video-info (~> 0.1.5)
+  ffmpeg-video-info
   jeweler
   rake-compiler
   rdoc
