@@ -2,12 +2,12 @@ require 'spec_helper'
 require 'torrent_client'
 describe VideoTorrentInfo::TorrentClient do
   let(:torrent) { 'spec/fixtures/test.torrent' }
-  let(:target) { '/tmp/Extraterrestrial.2014.L1.WEB-DLRip.avi' }
+  let(:target) { '/tmp/Соседи.На тропе войны.(Logan1995).avi' }
   let(:port1) { 8661 }
   let(:port2) { port1 + 1 }
   let(:path) { '/tmp' }
-  let(:size) { 1000000 }
-  let(:timeout) { 600 }
+  let(:size) { 100000 }
+  let(:timeout) { 6000 }
   subject { VideoTorrentInfo::TorrentClient.new }
   context 'when #load' do
     context 'with wrong file' do
@@ -21,7 +21,7 @@ describe VideoTorrentInfo::TorrentClient do
           subject.load(torrent, 0, size, path, port1, port2, timeout)
         end
         after do
-          File.unlink(target)
+          File.unlink(target) rescue nil
         end
         specify do
           expect(File.exist?(target)).to be_true
@@ -31,7 +31,7 @@ describe VideoTorrentInfo::TorrentClient do
         let(:torrent) { 'spec/fixtures/test2.torrent' }
         let(:target) { '/tmp/Tom_&_Jerry/TOM-1/07. Мышонок-стратег.avi' }
         before do
-          subject.load(torrent, 0, -1, path, port1, port2, 6000)
+          subject.load(torrent, 0, -1, path, port1, port2, timeout)
         end
         after do
           File.unlink(target)
