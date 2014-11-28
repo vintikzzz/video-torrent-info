@@ -1,4 +1,5 @@
-require "mkmf-rice"
+require 'rubygems'
+require 'mkmf-rice'
 
 if RUBY_PLATFORM =~ /darwin/
   $LDFLAGS << " -g -O2 -ftemplate-depth=120 -fvisibility-inlines-hidden -Wl,-bind_at_load  -L/usr/local/lib -ltorrent-rasterbar -lboost_system -lssl -lcrypto -lz"
