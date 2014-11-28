@@ -11,7 +11,7 @@ group :development do
   gem "jeweler"
   gem "rspec"
   gem "rake-compiler"
-  gem "rice"
-  gem "ffmpeg-video-info"
+  # gem "rice"
+  # gem "ffmpeg-video-info"
   gem 'bencode', :git => 'git://github.com/vintikzzz/ruby-bencode.git'
 end

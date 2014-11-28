@@ -14,7 +14,6 @@ GEM
     diff-lcs (1.2.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    ffmpeg-video-info (0.1.5)
     git (1.2.8)
     github_api (0.12.2)
       addressable (~> 2.3)
@@ -55,7 +54,6 @@ GEM
       rake
     rdoc (4.1.2)
       json (~> 1.4)
-    rice (1.6.2)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -76,9 +74,7 @@ PLATFORMS
 DEPENDENCIES
   bencode!
   bundler
-  ffmpeg-video-info
   jeweler
   rake-compiler
   rdoc
-  rice
   rspec
