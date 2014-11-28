@@ -56,8 +56,6 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<rice>, [">= 0"])
       s.add_development_dependency(%q<ffmpeg-video-info>, [">= 0"])
       s.add_development_dependency(%q<bencode>, [">= 0"])
-      s.add_runtime_dependency(%q<ffmpeg-video-info>, [">= 0"])
-      s.add_runtime_dependency(%q<rice>, [">= 0"])
     else
       s.add_dependency(%q<rdoc>, [">= 0"])
       s.add_dependency(%q<bundler>, [">= 0"])
@@ -67,8 +65,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rice>, [">= 0"])
       s.add_dependency(%q<ffmpeg-video-info>, [">= 0"])
       s.add_dependency(%q<bencode>, [">= 0"])
-      s.add_dependency(%q<ffmpeg-video-info>, [">= 0"])
-      s.add_dependency(%q<rice>, [">= 0"])
     end
   else
     s.add_dependency(%q<rdoc>, [">= 0"])
@@ -79,8 +75,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rice>, [">= 0"])
     s.add_dependency(%q<ffmpeg-video-info>, [">= 0"])
     s.add_dependency(%q<bencode>, [">= 0"])
-    s.add_dependency(%q<ffmpeg-video-info>, [">= 0"])
-    s.add_dependency(%q<rice>, [">= 0"])
   end
 end
 
