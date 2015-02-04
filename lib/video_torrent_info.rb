@@ -6,7 +6,7 @@ class VideoTorrentInfo
     port1: 8661,
     port2: 8662,
     temp_path: '/tmp',
-    supported_extensions: %w{ .avi .mkv .mpg .mpeg .3gp .wmv .mov .flv .mts },
+    supported_extensions: %w{ .avi .mkv .mpg .mpeg .3gp .wmv .mov .flv .mts .mp4 },
     download_limit: -1,
     timeout: 60
   }
@@ -41,6 +41,7 @@ class VideoTorrentInfo
         res[files.index(f)] = f
       end
     end
+    raise "No files supported" if res.empty?
     res
   end
 end
