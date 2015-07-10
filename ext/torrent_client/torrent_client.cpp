@@ -29,6 +29,7 @@ void load(String torrent_path, int idx, int size, String save_path, int port1, i
   using namespace libtorrent;
 
   session s;
+  error_code ec;
   std::ostringstream err;
   signal(SIGINT,  term);
   signal(SIGTERM, term);
