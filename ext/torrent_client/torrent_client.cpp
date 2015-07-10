@@ -2,6 +2,8 @@
 #include <sstream>
 #include <iostream>
 #include <exception>
+#include <stdio.h>
+#include <unistd.h>
 #include "libtorrent/entry.hpp"
 #include "libtorrent/bencode.hpp"
 #include "libtorrent/session.hpp"
@@ -17,14 +19,19 @@ struct MyException : public std::exception
    ~MyException() throw () {}
    const char* what() const throw() { return s.c_str(); }
 };
+void term(int signum)
+{
+    exit(1);
+}
 
 void load(String torrent_path, int idx, int size, String save_path, int port1, int port2, int timeout)
 {
   using namespace libtorrent;
 
   session s;
-  error_code ec;
   std::ostringstream err;
+  signal(SIGINT,  term);
+  signal(SIGTERM, term);
   s.listen_on(std::make_pair(port1, port2), ec);
   if (ec)
   {
@@ -60,12 +67,13 @@ void load(String torrent_path, int idx, int size, String save_path, int port1, i
 
   size_type temp = 0;
   int t = 0;
+  bool finish = false;
 
   while (true)
   {
     torrent_status st = h.status();
     if (st.is_finished == true) {
-      return;
+      finish = true;
     }
     if (st.total_done > temp)
     {
@@ -74,10 +82,14 @@ void load(String torrent_path, int idx, int size, String save_path, int port1, i
     }
     if (size > 0 && temp >= size)
     {
-      return;
+      finish = true;
     }
     if (t >= timeout * 1000)
     {
+      finish = true;
+    }
+    if (finish) {
+      s.abort();
       return;
     }
     t++;

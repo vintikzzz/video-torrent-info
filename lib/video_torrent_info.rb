@@ -7,8 +7,8 @@ class VideoTorrentInfo
     port2: 8662,
     temp_path: '/tmp',
     supported_extensions: %w{ .avi .mkv .mpg .mpeg .3gp .wmv .mov .flv .mts .mp4 },
-    download_limit: -1,
-    timeout: 60
+    download_limit: 100000,
+    timeout: 30
   }
   def initialize(params = {})
     @params = DEFAULTS.merge(params)
