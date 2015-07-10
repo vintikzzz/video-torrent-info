@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <csignal>
 #include <sstream>
 #include <iostream>
 #include <exception>
@@ -27,9 +28,10 @@ void term(int signum)
 void load(String torrent_path, int idx, int size, String save_path, int port1, int port2, int timeout)
 {
   using namespace libtorrent;
+  using namespace std;
 
   session s;
-  error_code ec;
+  libtorrent::error_code ec;
   std::ostringstream err;
   signal(SIGINT,  term);
   signal(SIGTERM, term);
