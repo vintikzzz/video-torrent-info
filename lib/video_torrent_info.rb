@@ -1,7 +1,7 @@
 require 'bencode'
+require 'ffmpeg_video_info'
 class VideoTorrentInfo
   autoload :TorrentClient, 'torrent_client'
-  autoload :FFmpegVideoInfo, 'ffmpeg_video_info'
   DEFAULTS = {
     port1: 8661,
     port2: 8662,
@@ -16,7 +16,7 @@ class VideoTorrentInfo
   end
   def load(torrent_path)
     dest = download_video(torrent_path)
-    res = FFmpegVideoInfo.get(dest)
+    res = ::FFmpeg::Video.info(dest)
     File.unlink(dest)
     res
   end
