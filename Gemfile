@@ -5,8 +5,9 @@ source "http://rubygems.org"
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
-# gem 'rice'
 group :development do
+  gem 'rice'
+  gem 'ffmpeg-video-info'
   gem "rdoc"
   gem "bundler"
   gem "jeweler"
