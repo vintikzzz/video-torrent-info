@@ -9,24 +9,6 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 require 'rake'
-
-require 'jeweler'
-Jeweler::Tasks.new do |gem|
-  # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "video-torrent-info"
-  gem.homepage = "http://github.com/vintikzzz/video-torrent-info"
-  gem.license = "MIT"
-  gem.summary = %Q{Gets video info for the torrent file}
-  gem.description = %Q{It simply loads small part of torrent that contains metadata and processes it with ffmpeg}
-  gem.email = "fazzzenda@mail.ru"
-  gem.authors = ["Pavel Tatarsky"]
-  gem.extensions = %w[ext/torrent_client/extconf.rb]
-  gem.add_dependency 'ffmpeg-video-info'
-  gem.add_dependency 'rice'
-  # dependencies defined in Gemfile
-end
-Jeweler::RubygemsDotOrgTasks.new
-
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
