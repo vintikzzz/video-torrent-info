@@ -8,7 +8,9 @@ GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.2.5)
-    ffmpeg-video-info (0.2.9)
+    ffmpeg-video-info (0.2.10)
+      mini_portile2
+    mini_portile2 (2.1.0)
     rake (10.5.0)
     rake-compiler (0.9.5)
       rake
