@@ -19,6 +19,6 @@ matrix:
 
 env:
   global:
-  - CODECLIMATE_REPO_TOKEN=f3628d3936051e0bc676f02ada2a53bb5388cad4b9d23ec17c11306e30b8ebe7
+  - CODECLIMATE_REPO_TOKEN=cb22b6809538fd7986ead14ac5fe2f561196cac9451a13b239855cd19ecbfd55
 
 script: travis_wait 40 bundle exec rake
