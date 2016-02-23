@@ -21,4 +21,4 @@ env:
   global:
   - CODECLIMATE_REPO_TOKEN=f3628d3936051e0bc676f02ada2a53bb5388cad4b9d23ec17c11306e30b8ebe7
 
-script: travis_wait bundle exec rake
+script: travis_wait 40 bundle exec rake
