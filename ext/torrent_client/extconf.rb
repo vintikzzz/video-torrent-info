@@ -3,11 +3,32 @@ require 'mkmf-rice'
 require 'fileutils'
 gem 'mini_portile2'
 require 'mini_portile2'
+module Net
+  class HTTP
+    alias old_initialize initialize
+    def initialize(*args)
+      old_initialize(*args)
+      @read_timeout = 3 * 60
+    end
+  end
+end
 $CXXFLAGS = '' if $CXXFLAGS.nil?
 $CPPFLAGS << ' -Wno-unused-result -Wno-deprecated-declarations -Wno-sign-compare -Wno-unused-variable'
 message "Using mini_portile version #{MiniPortile::VERSION}\n"
 
-class BoostRecipe < MiniPortile
+class MyRecipe < MiniPortile
+  def download_file_http(url, full_path, count = 3)
+    filename = File.basename(full_path)
+    message "Downloading %s from %s\n" % [filename, url]
+    with_tempfile(filename, full_path) do |temp_file|
+      OpenURI.open_uri(url, 'rb') do |io|
+        temp_file << io.read
+      end
+    end
+  end
+end
+
+class BoostRecipe < MyRecipe
   def configure
     return if configured?
 
@@ -28,18 +49,7 @@ class BoostRecipe < MiniPortile
   end
 end
 
-boost_recipe = BoostRecipe.new('boost', '1.60.0')
-file = "http://downloads.sourceforge.net/project/boost/boost/#{boost_recipe.version}/boost_#{boost_recipe.version.gsub('.', '_')}.tar.gz"
-message "Boost source url #{file}\n"
-boost_recipe.files = [file]
-checkpoint = ".#{boost_recipe.name}-#{boost_recipe.version}.installed"
-unless File.exist?(checkpoint)
-  boost_recipe.cook
-  FileUtils.touch(checkpoint)
-end
-boost_recipe.activate
-
-class OpenSSLRecipe < MiniPortile
+class OpenSSLRecipe < MyRecipe
   def configure
     return if configured?
 
@@ -64,18 +74,7 @@ class OpenSSLRecipe < MiniPortile
   end
 end
 
-openssl_recipe = OpenSSLRecipe.new('openssl', '1.0.2f')
-file = "https://www.openssl.org/source/openssl-#{openssl_recipe.version}.tar.gz"
-message "OpenSSL source url #{file}\n"
-openssl_recipe.files = [file]
-checkpoint = ".#{openssl_recipe.name}-#{openssl_recipe.version}.installed"
-unless File.exist?(checkpoint)
-  openssl_recipe.cook
-  FileUtils.touch(checkpoint)
-end
-openssl_recipe.activate
-
-class LibtorrentRecipe < MiniPortile
+class LibtorrentRecipe < MyRecipe
   def configure
     return if configured?
 
@@ -86,23 +85,35 @@ class LibtorrentRecipe < MiniPortile
   end
 end
 
+boost_recipe = BoostRecipe.new('boost', '1.60.0')
+file = "http://downloads.sourceforge.net/project/boost/boost/#{boost_recipe.version}/boost_#{boost_recipe.version.gsub('.', '_')}.tar.gz"
+boost_recipe.files = [file]
+
+openssl_recipe = OpenSSLRecipe.new('openssl', '1.0.2f')
+file = "https://www.openssl.org/source/openssl-#{openssl_recipe.version}.tar.gz"
+openssl_recipe.files = [file]
+
 libtorrent_recipe = LibtorrentRecipe.new('libtorrent', '1.0.8')
-file = "http://codeload.github.com/arvidn/libtorrent/tar.gz/libtorrent-#{libtorrent_recipe.version.gsub('.', '_')}"
-message "Libtorrent source url #{file}\n"
+file = "https://codeload.github.com/arvidn/libtorrent/tar.gz/libtorrent-#{libtorrent_recipe.version.gsub('.', '_')}"
 libtorrent_recipe.files = [file]
 libtorrent_recipe.configure_options = %W[
   --enable-dht
   --with-openssl=#{openssl_recipe.path}
   --with-boost-libdir=#{boost_recipe.path}/lib
 ]
-checkpoint = ".#{libtorrent_recipe.name}-#{libtorrent_recipe.version}.installed"
-unless File.exist?(checkpoint)
-  libtorrent_recipe.cook
-  FileUtils.touch(checkpoint)
-end
-libtorrent_recipe.activate
 
-recipes = [libtorrent_recipe, boost_recipe, openssl_recipe]
+recipes = [boost_recipe, openssl_recipe, libtorrent_recipe]
+
+recipes.each { |r| r.download }
+
+recipes.each do |r|
+  checkpoint = ".#{r.name}-#{r.version}.installed"
+  unless File.exist?(checkpoint)
+    r.cook
+    FileUtils.touch(checkpoint)
+  end
+  r.activate
+end
 
 $LDFLAGS  << " -Wl,-rpath,#{recipes.map { |r| r.path + '/lib'}.join(':')}"
 
