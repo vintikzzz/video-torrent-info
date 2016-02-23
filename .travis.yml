@@ -20,8 +20,3 @@ matrix:
 env:
   global:
   - CODECLIMATE_REPO_TOKEN=f3628d3936051e0bc676f02ada2a53bb5388cad4b9d23ec17c11306e30b8ebe7
-
-before_install:
-  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-  - sudo apt-get update -q
-  - sudo apt-get install gcc-4.8 -y
