@@ -16,6 +16,8 @@ matrix:
   # https://github.com/travis-ci/travis-ci/issues/5361
   - os: osx
     rvm: 2.3.0
+  - os: osx
+    rvm: 2.0.0
 
 env:
   global:

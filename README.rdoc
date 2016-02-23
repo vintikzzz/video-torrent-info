@@ -5,6 +5,10 @@ It simply loads small part of torrent that contains metadata and processes it wi
 == Status
 
 {<img src="https://travis-ci.org/vintikzzz/video-torrent-info.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/vintikzzz/video-torrent-info]
+{<img src="https://codeclimate.com/github/vintikzzz/video-torrent-info/badges/gpa.svg" />}[https://codeclimate.com/github/vintikzzz/video-torrent-info]
+{<img src="https://codeclimate.com/github/vintikzzz/video-torrent-info/badges/gpa.svg" />}[https://codeclimate.com/github/vintikzzz/video-torrent-info]
+{<img src="https://www.versioneye.com/user/projects/56cc993418b2710494d7d474/badge.svg?style=flat" alt="Dependency Status" />}[https://www.versioneye.com/user/projects/56cc993418b2710494d7d474]
+
 
 == Contributing to video-torrent-info
 

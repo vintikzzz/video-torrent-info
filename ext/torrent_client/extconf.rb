@@ -87,7 +87,7 @@ class LibtorrentRecipe < MiniPortile
 end
 
 libtorrent_recipe = LibtorrentRecipe.new('libtorrent', '1.0.8')
-file = "https://codeload.github.com/arvidn/libtorrent/tar.gz/libtorrent-#{libtorrent_recipe.version.gsub('.', '_')}"
+file = "http://codeload.github.com/arvidn/libtorrent/tar.gz/libtorrent-#{libtorrent_recipe.version.gsub('.', '_')}"
 message "Libtorrent source url #{file}\n"
 libtorrent_recipe.files = [file]
 libtorrent_recipe.configure_options = %W[
