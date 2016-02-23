@@ -1,0 +1,10 @@
+gem:
+  build: .
+  volumes_from:
+    - tmp
+
+tmp:
+  image: busybox
+  command: echo 'Data container running!'
+  volumes:
+    - /usr/src/gem/tmp

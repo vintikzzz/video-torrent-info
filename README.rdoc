@@ -1,9 +1,9 @@
 = video-torrent-info
 
-Description goes here.
+It simply loads small part of torrent that contains metadata and processes it with FFmpeg
 
 == Contributing to video-torrent-info
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
 * Fork the project.
@@ -16,4 +16,3 @@ Description goes here.
 
 Copyright (c) 2013 Pavel Tatarsky. See LICENSE.txt for
 further details.
-

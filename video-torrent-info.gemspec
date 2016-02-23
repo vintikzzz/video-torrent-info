@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'ffmpeg-video-info'
   s.add_dependency 'bencode'
+  s.add_dependency 'mini_portile2'
 
   s.add_development_dependency 'rdoc'
   s.add_development_dependency 'rake'

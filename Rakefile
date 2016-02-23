@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'bundler'
 require 'rake/extensiontask'
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -18,6 +20,10 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+task :compile => [:'compile:torrent_client']
+task :spec => [:compile]
+task :default => :spec
 
 require 'rake/extensiontask'
 Rake::ExtensionTask.new('torrent_client')

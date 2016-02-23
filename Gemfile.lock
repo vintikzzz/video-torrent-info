@@ -8,7 +8,7 @@ GEM
   remote: http://rubygems.org/
   specs:
     diff-lcs (1.2.5)
-    ffmpeg-video-info (0.2.10)
+    ffmpeg-video-info (0.2.13)
       mini_portile2
     mini_portile2 (2.1.0)
     rake (10.5.0)
@@ -37,6 +37,7 @@ DEPENDENCIES
   bencode!
   bundler
   ffmpeg-video-info
+  mini_portile2
   rake-compiler
   rdoc
   rice
