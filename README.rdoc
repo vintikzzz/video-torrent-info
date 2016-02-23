@@ -2,6 +2,10 @@
 
 It simply loads small part of torrent that contains metadata and processes it with FFmpeg
 
+== Status
+
+{<img src="https://travis-ci.org/vintikzzz/video-torrent-info.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/vintikzzz/video-torrent-info]
+
 == Contributing to video-torrent-info
 
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
