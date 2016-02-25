@@ -23,12 +23,12 @@ Gem::Specification.new do |s|
   s.add_dependency 'ffmpeg-video-info'
   s.add_dependency 'bencode'
   s.add_dependency 'mini_portile2'
+  s.add_dependency 'rice'
 
   s.add_development_dependency 'rdoc'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'bundler'
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'rake-compiler'
-  s.add_development_dependency 'rice'
 
 end
