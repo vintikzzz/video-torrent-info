@@ -90,8 +90,10 @@ file = "http://downloads.sourceforge.net/project/boost/boost/#{boost_recipe.vers
 boost_recipe.files = [file]
 
 openssl_recipe = OpenSSLRecipe.new('openssl', '1.0.2f')
-file = "https://www.openssl.org/source/openssl-#{openssl_recipe.version}.tar.gz"
-openssl_recipe.files = [file]
+openssl_recipe.files << {
+  url:    "https://www.openssl.org/source/old/#{openssl_recipe.version.gsub(/[a-z]*/, '')}/openssl-#{openssl_recipe.version}.tar.gz",
+  sha256: '932b4ee4def2b434f85435d9e3e19ca8ba99ce9a065a61524b429a9d5e9b2e9c'
+}
 
 libtorrent_recipe = LibtorrentRecipe.new('libtorrent', '1.0.8')
 file = "https://codeload.github.com/arvidn/libtorrent/tar.gz/libtorrent-#{libtorrent_recipe.version.gsub('.', '_')}"

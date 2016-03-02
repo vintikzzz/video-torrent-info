@@ -8,4 +8,5 @@ group :development do
   gem 'bencode', :git => 'git://github.com/vintikzzz/ruby-bencode.git'
   gem 'ffmpeg-video-info'
   gem 'mini_portile2'
+  gem "codeclimate-test-reporter", require: nil
 end

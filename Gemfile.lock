@@ -7,7 +7,10 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    codeclimate-test-reporter (0.4.8)
+      simplecov (>= 0.7.1, < 1.0.0)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     ffmpeg-video-info (0.2.13)
       mini_portile2
     json (1.8.3)
@@ -31,6 +34,11 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    simplecov (0.11.2)
+      docile (~> 1.1.0)
+      json (~> 1.8)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
 
 PLATFORMS
   ruby
@@ -38,6 +46,7 @@ PLATFORMS
 DEPENDENCIES
   bencode!
   bundler
+  codeclimate-test-reporter
   ffmpeg-video-info
   mini_portile2
   rake-compiler
